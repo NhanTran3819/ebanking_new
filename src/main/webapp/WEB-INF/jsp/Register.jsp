@@ -16,19 +16,19 @@
                         <form action="${action}" method="POST">
                             <div class="form-group">
                                 <label for="text">&ensp;Account:</label><br>
-                                <input name="id" type="text" class="form-control" placeholder="Nhập tài khoản" />
+                                <input name="id" type="text" class="form-control" placeholder="Enter Account" required/>
                             </div>
                             <div class="form-group">
                                 <label for="email">&ensp;Email:</label><br>
-                                <input type="email" name="email" class="form-control" placeholder="Nhập email"><br>
+                                <input type="email" name="email" class="form-control" placeholder="Enter Email" required><br>
                             </div>
                             <div class="form-group">
                                 <label for="pwd">&ensp;Password:</label><br>
-                                <input type="password" class="form-control" id="pwd" placeholder="Nhập password" name="pass1"><br>
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pass1" required><br>
                             </div>
                             <div class="form-group">
                                 <label for="pwd">&ensp;Confirm-Password:</label><br>
-                                <input type="password" class="form-control" id="pwd" placeholder="Nhập lại-Password" name="pass2"><br>
+                                <input type="password" class="form-control" id="pwd" placeholder="Confirm-Password" name="pass2" required><br>
                             </div>
                             <div>
                                 <label>&ensp;Enter Code:</label><br>

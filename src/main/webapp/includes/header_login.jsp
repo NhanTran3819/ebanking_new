@@ -50,9 +50,10 @@
                 border: 2px solid #848484;
                 background: white;
                 
-                width: 300px;
+                width: 320px;
                 height: 400px;
                 border-radius: 5px 5px 5px 5px;
+                padding-left: 10px;
             }
         </style>    
     </head>
@@ -63,7 +64,7 @@
 		<div class="header-w3mdl"><!-- header-two --> 
 			<div class="container"> 
 				<div class="agileits-logo navbar-left">
-					<h1><a href="index.html"><img src="images/e.png" alt="logo"/>Banking</a></h1> 
+					<h1><a href="http://localhost:8084/WebEbanking_1/"><img src="images/e.png" alt="logo"/>Banking</a></h1> 
 				</div> 
 				<div class="agileits-hdright nav navbar-nav">
 					<div class="header-w3top"><!-- header-top --> 

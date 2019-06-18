@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package entity;
 
 import java.util.List;
@@ -9,7 +14,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+/**
+ *
+ * @author Admin
+ */
 @Entity
 @Table(name="extBank")
 public class ExtBankEntity {
@@ -24,13 +32,18 @@ public class ExtBankEntity {
     public ExtBankEntity() {
     }
 
+    public ExtBankEntity(int bankId, String bankName, List<BranchEntity> listBranch) {
+        this.bankId = bankId;
+        this.bankName = bankName;
+        this.listBranch = listBranch;
+    }
+
     public ExtBankEntity(int bankId, String bankName) {
         this.bankId = bankId;
         this.bankName = bankName;
     }
 
-    public ExtBankEntity(int bankId, String bankName, List<BranchEntity> listBranch) {
-        this.bankId = bankId;
+    public ExtBankEntity(String bankName, List<BranchEntity> listBranch) {
         this.bankName = bankName;
         this.listBranch = listBranch;
     }
@@ -58,5 +71,6 @@ public class ExtBankEntity {
     public void setListBranch(List<BranchEntity> listBranch) {
         this.listBranch = listBranch;
     }
-
+    
+    
 }

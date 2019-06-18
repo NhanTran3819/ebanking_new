@@ -7,7 +7,7 @@ html {
 }
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 150%;
+    font-size: 100%;
     border: 1px solid #A9D0F5;
   
    
@@ -94,12 +94,12 @@ header img {
 
 /* the styles for the section */
 section {
-    width: 1065px;
+    width: 300px;
     padding-right: 20px;
     padding-left: 20px;
     float: left;    
     background: #EFF5FB;
-    min-height:  620px;
+    min-height:  200px;
 }
 section h1 {
     margin-bottom: 0.35em; 
@@ -172,7 +172,7 @@ tr, th, td {
 
 /* the style for the cart pages */
 .cart {
-    width: 700px;
+    width: 500px;
 }
 .cart label {
     float: left;
@@ -247,18 +247,18 @@ aside img {
     margin-bottom: 1em;    
 }
 #sidebarA { 
-    width: 300px; 
+    width: 200px; 
     float: left; 
-    min-height:  620px;
+    min-height:  300px;
     border-right: 2px solid #FF8000;
     background: #81BEF7;
     font-size: 120%;
 }
 
 #sidebarB { 
-    width: 150px; 
+    width: 50px; 
     float: right; 
-    min-height:  620px;
+    min-height:  300px;
     padding-left: 10px;
     border-left: 2px solid #FF8000;
     background: #81BEF7;

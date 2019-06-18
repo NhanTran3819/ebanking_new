@@ -12,13 +12,13 @@
     <nav><br>
       <ul>
           <li><a class="current" href="index.jsp">
-                 &emsp; TRANG CHỦ</a></li>          
+                 &emsp; </a></li>          
           <li><a href="information.jsp">
-                 &emsp; NẠP TIỀN(DEPOSIT)</a></li>
+                 &emsp; </a></li>
           <li><a href="inforaccount.jsp">
-                 &emsp; RÚT TIỀN(WITHDRAW)</a></li>        
+                 &emsp; </a></li>        
           <li><a href="inforaccount.jsp">
-                 &emsp; CHUYỂN TIỀN(TRANSFER)</a></li>       
+                 &emsp; </a></li>       
       </ul>
     </nav>
 </aside>

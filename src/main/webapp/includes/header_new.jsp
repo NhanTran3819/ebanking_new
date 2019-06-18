@@ -49,10 +49,11 @@
             section form{
                 border: 2px solid #848484;
                 align-content: center;
-                width: 300px;
+                width: 330px;
                 height: 530px;
                 background: white;
                 border-radius: 5px 5px 5px 5px;
+                padding-left: 10px;
             }
             
             

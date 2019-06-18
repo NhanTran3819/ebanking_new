@@ -6,8 +6,13 @@
 
 <section>         
         <br>
-          
+          <a href="user">User</a>
         <br>
+        <mvc:form action="searchAccount" method="get">
+            <input type="text" name="searchvalue" placeholder="account or name">
+            <span><button type="submit">Search</button></span>
+        </mvc:form>
+            <br>
         <h1 style="color:  #08088A; font-weight: bold;text-align: center">List Account</h1> 
                     <div class="sub_container">
                         <table border>

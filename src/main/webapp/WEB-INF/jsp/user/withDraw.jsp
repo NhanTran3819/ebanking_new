@@ -5,7 +5,11 @@
 <%@ include file="/includes/column_left_home_2.jsp" %>
 
 <section>  
-    <br><br>
+    <br><div class="container-fluid">
+    <div class="col-md-3">
+           <a href="user">User</a><br> 
+    </div>
+        <div class="col-md-7"><br>
     
        <h2>Tru Tien Cua Account</h2>
 
@@ -27,7 +31,12 @@
                             </div>
                     <form>
                     </div>
-
+</div>
+ 
+        <div class="col-md-2">
+            
+        </div>        
+    </div>    
 </section>
 
 <!-- end the middle column -->

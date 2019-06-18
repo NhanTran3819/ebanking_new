@@ -6,14 +6,14 @@
 
 <section>  
      <br>
-     <div class="col-md-3">
+     <div class="col-md-1">
         </div>
-        <div class="col-md-9">
+        <div class="col-md-11">
        <h1 style="color:  #08088A; font-weight: bold">This is Page User!</h1>
         <br>
         <a href="managerAccount">Manager Account</a><br><br>
-        <a href="Deposit">Deposit</a><br><br>
-        <a href="WithDraw">WithDraw</a><br><br>
+        <a href="deposit">deposit</a><br><br>
+        <a href="withDraw">withDraw</a><br><br>
         <form method="post" action='<c:url value="/j_spring_security_logout" />'>
            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
            <input type="submit" class="btn btn-primary" value="Logout" />

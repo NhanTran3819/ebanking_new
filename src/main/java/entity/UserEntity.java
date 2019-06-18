@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package entity;
 
 import javax.persistence.Entity;
@@ -8,13 +12,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ *
+ * @author Admin
+ */
 @Entity
 @Table(name="user")
 public class UserEntity {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String userName;
+    private String username;
     private String password;
     private int enable; 
     
@@ -25,30 +32,30 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(String userName, String password, int enable, RoleEntity role) {
-        this.userName = userName;
+    public UserEntity(String username, String password, int enable, RoleEntity role) {
+        this.username = username;
         this.password = password;
         this.enable = enable;
         this.role = role;
     }
 
-    public UserEntity(String userName, String password, int enable) {
-        this.userName = userName;
+    public UserEntity(String username, String password, int enable) {
+        this.username = username;
         this.password = password;
         this.enable = enable;
     }
 
-    public UserEntity(String userName, String password) {
-        this.userName = userName;
+    public UserEntity(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

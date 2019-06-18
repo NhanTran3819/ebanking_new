@@ -22,7 +22,7 @@ public class SpringConfig {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/ebankingDB");
         dataSource.setUsername("root");
-        dataSource.setPassword("123456");
+        dataSource.setPassword("Human@199111");
         return dataSource;
     }
     @Bean

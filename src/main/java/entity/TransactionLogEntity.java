@@ -13,8 +13,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
-
+/**
+ *
+ * @author ADMIN
+ */
 @Entity
 @Table(name="transactionLog")
 public class TransactionLogEntity {

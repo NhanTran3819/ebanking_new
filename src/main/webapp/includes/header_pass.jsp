@@ -53,6 +53,7 @@
                 width: 300px;
                 height: 270px;
                 border-radius: 5px 5px 5px 5px;
+                margin-left: 10px;
             }
         </style>    
     </head>

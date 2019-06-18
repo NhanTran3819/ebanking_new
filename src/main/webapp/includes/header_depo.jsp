@@ -15,45 +15,27 @@
         <script src="js/popper.min.js" type="text/javascript"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>  
         <script src="https://www.google.com/recaptcha/api.js?hl=vi"></script>
-        <script>  
-            $(document).ready(function () {  
-                $("#btnGetCaptcha").prop("disabled", true);  
-            var iNumber = Math.floor(Math.random() * 10000);  
-                $("#divGenerateRandomValues").css({ "background-image": 'url(../img/captcha.png)', 'width': '100px', 'height': '40px' });  
-                $("#divGenerateRandomValues").html("<input id='txtNewInput'></input>");  
-                $("#txtNewInput").css({ 'background': 'transparent', 'font-family': 'cursive','text-decoration': 'line-through', 'font-style': 'oblique', 'font-size': '30px' });  
-                $("#txtNewInput").css({ 'width': '100px', 'border': 'none', 'color': 'white' });  
-                $("#txtNewInput").val(iNumber);  
-                $("#txtNewInput").prop('disabled', true);  
-  
-                $("#btnGetCaptcha").click(function () {  
-                    if ($("#textInput").val() != iNumber) {  
-                          
-                    }  
-                    else {  
-                        
-                    }  
-                    });  
-            var  wrongInput = function () {  
-                if ($("#textInput").val() != iNumber) {  
-                    return true;  
-                    }  
-                else {  
-                    return false;  
-                    }  
-                };  
-                $("#textInput").bind('input', function () {                  
-                    $("#btnGetCaptcha").prop('disabled', wrongInput);  
-                });  
-            });  
-        </script> 
+        <script>
+               function test(){
+                 var x=document.getElementById("toAccount");
+                 var y=x.value.toString();
+                   if(y.length>=11){
+                       myFunction();
+                   }
+    }
+               function myFunction() {
+                   var x = document.getElementById("toAccount");
+                   var url="getAccName?toAccount="+x.value;
+                   window.location=url;
+               }
+        </script>
         <style>
             section form{
                 background: white;
                 border: 2px solid #848484;
                 align-content: center;
                 width: 320px;
-                height: 250px;
+                height: 300px;
                 border-radius: 5px 5px 5px 5px;
             }
             
@@ -71,7 +53,7 @@
 		<div class="header-w3mdl"><!-- header-two --> 
 			<div class="container"> 
 				<div class="agileits-logo navbar-left">
-                                    <h1><a href="http://localhost:8084/WebEbanking_1/"><img src="images/e.png" alt="logo"/>Banking</a></h1> 
+					<h1><a href="index.html"><img src="images/e.png" alt="logo"/>Banking</a></h1> 
 				</div> 
 				<div class="agileits-hdright nav navbar-nav">
 					<div class="header-w3top"><!-- header-top --> 
@@ -89,7 +71,7 @@
 		</div>	
 	</div>	
     </header>
-    <nav id="nav_bar">
+    <nav id="nav_bar"><a style="color: white; float: left" href="loginSecurity"></a>
         <ul>
             <li><a style="color: white" href="loginSecurity"></a></li>
             <li><a style="color: white" href="newAccount"></a></li>

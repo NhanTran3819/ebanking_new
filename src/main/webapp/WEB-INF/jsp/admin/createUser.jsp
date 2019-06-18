@@ -9,13 +9,14 @@
         <div class="col-md-4">
             
         </div>
-        <div class="col-md-8"><br><br>    
+        <div class="col-md-8"><br>
+            <a href="admin">Admin</a><br>    
         <h1 style="color:  #08088A; font-weight: bold">&ensp;&ensp;Create New User</h1>
                 <div class="sub_container">
                         <form action="${action}" method="POST">
                             <div class="form-group">
                                 <label for="text">&ensp;User Name:</label><br>
-                                <input name="id" type="text" class="form-control" placeholder="Enter userName" />
+                                <input name="userName" type="text" class="form-control" placeholder="Enter userName" />
                             </div>
                             <div class="form-group">
                                 <label for="pwd">&ensp;Password:</label><br>
