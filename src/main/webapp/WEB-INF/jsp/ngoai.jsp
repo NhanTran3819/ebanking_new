@@ -27,7 +27,7 @@
                 <tr>
                     <th>Bank: </th>
                     <td>
-                        <mvc:select id="bank" name="bank" path="bank" onchange="myFunction()">
+                        <mvc:select id="bank" name="bank" path="bank" onchange="myFunction()" >
                            <mvc:option value="0" label="-----select-----" />
                            <mvc:options items="${extBankList}" />
                         </mvc:select>
@@ -46,23 +46,23 @@
                 
                 <tr>
                     <th>To Account: </th>
-                    <td><input type="text" class="form-control" name="accountNo"></td>
+                    <td><input type="text" class="form-control" name="accountNo" required></td>
                 </tr>
                 <tr>
                     <th>To Account Name(*): </th>
-                    <td><input type="text" class="form-control" name="accountName"></td>
+                    <td><input type="text" class="form-control" name="accountName" required></td>
                 </tr>
                 <tr>
                     <th>Amount(*): </th>
-                    <td><input type="text" class="form-control" name="amount"></td>
+                    <td><input type="text" class="form-control" name="amount" required></td>
                 </tr>
                 <tr>
                     <th>Fee(*): </th>
-                    <td><input type="text" class="form-control" name="fee"></td>
+                    <td><input type="text" class="form-control" name="fee" required></td>
                 </tr>
                 <tr>
                     <th>Content(*): </th>
-                    <td><input style="height: 80px" type="text" class="form-control" name="content"></td>
+                    <td><input style="height: 80px" type="text" class="form-control" name="content" required></td>
                 </tr>
                     <th></th>
                     <td>

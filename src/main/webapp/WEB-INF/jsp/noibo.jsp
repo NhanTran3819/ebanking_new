@@ -21,21 +21,21 @@
                         <form action="${action}" method="POST">                           
                             <div class="form-group">
                                 <label for="text">&ensp;Tài Khoản Nhận:</label>
-                                <input type="text" class="form-control" value="${account.accountNo}"id="toAccount" name="toAccount" onChange="myFunction()">
+                                <input type="text" class="form-control" value="${account.accountNo}" id="toAccount" name="toAccount" onChange="test()" required>
                             </div>
                            
                             <div class="form-group">
                                 <label for="name">&ensp;Tên Người Nhận:</label>
-                                <input type="text" class="form-control" id="accName" value="${account.customer.customerName}" name="accName">
+                                <input type="text" class="form-control" id="accName" value="${account.customer.customerName}" name="accName" required>
                             </div>
                             
                             <div>
                                 <label for="name">&ensp;Số Tiền:</label>
-                                <input type="text" class="form-control" id="pwd" placeholder="" name="amount">
+                                <input type="text" class="form-control" id="pwd" placeholder="" name="amount" required>
                             </div>
                             <div>
                                 <label for="name">&ensp;Nội Dung:</label>
-                                <input style="height: 80px" type="text" class="form-control" id="pwd" placeholder="" name="content">
+                                <input style="height: 80px" type="text" class="form-control" id="pwd" placeholder="" name="content" required>
                             </div>             
                             <br>
                                 <input type="hidden" id="otp" name="OTP" >

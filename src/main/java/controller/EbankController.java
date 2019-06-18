@@ -240,7 +240,7 @@ public class EbankController {
                 @RequestParam("email") String email,@RequestParam("pass1") String pass1,
                 @RequestParam("pass2") String pass2){
         String msgBody="Go to ebanking to activation "+" "+
-                "http://localhost:8084/WebEbanking_1/active";
+                "http://localhost:8080/WebEbanking_1/active";
         String subject="Activation account ebanking";
         String url="";
         String msgpass="";
