@@ -13,6 +13,9 @@
                     <h1 style="color:  #08088A; font-weight: bold">&ensp;&ensp;&ensp;&ensp;ĐĂNG NHẬP</h1> <br>
                     <div class="sub_container">
                         <mvc:form action="${action}" method="POST">
+                            <div>
+                                <p style="color:red">${param.msg}</p>
+                            </div>
                             <div class="form-group">
                                 <label for="text">&ensp;Account ID:</label><br>
                                 <input name="id" type="text" class="form-control" placeholder="Enter Account" required>

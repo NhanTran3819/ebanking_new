@@ -255,12 +255,10 @@ public class EbankController {
                    SentMail.send(email, subject, msgBody);
                    url="home";
             }else{
-               url="redirect:/Register";
                model.addAttribute("msg", "account or mail not true");
         }
               }
         }else{
-            url="redirect:/Register";
             model.addAttribute("msg", "password nhap lai khong khop nhau");
         }
         return url;
