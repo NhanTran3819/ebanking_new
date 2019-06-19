@@ -250,7 +250,7 @@ aside img {
 #sidebarA { 
     width: 200px; 
     float: left; 
-    min-height:  400px;
+    min-height:  700px;
     border-right: 2px solid #FF8000;
     background: #81BEF7;
     font-size: 120%;
@@ -259,7 +259,7 @@ aside img {
 #sidebarB { 
     width: 50px; 
     float: right; 
-    min-height:  400px;
+    min-height:  700px;
     padding-left: 10px;
     border-left: 2px solid #FF8000;
     background: #81BEF7;
