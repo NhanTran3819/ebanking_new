@@ -1,7 +1,7 @@
 <%@page contentType="text/html"  pageEncoding="utf-8" %>
 
 <jsp:useBean class="entity.AccountEntity" id="acc" scope="session"/>
-<%@ include file="/includes/header_inform.jsp" %>
+<%@ include file="/includes/header_int.jsp" %>
 <%@ include file="/includes/column_left_home.jsp" %>
 
 <section>         
@@ -13,10 +13,8 @@
         <div class="col-md-9"><br>
                     <h1 style="color:  #08088A;text-align: center;font-weight: bold">THÔNG TIN CHUYỂN TIỀN</h1> 
                     <div class="sub_container">
-                        <form action="${action}" method="POST">
-                            <br>
-                            <p style="color:red">${param.msg}</p>
-                            <br>
+                        <form id="form1" action="${action}" method="POST">
+
                             <div class="form-group"><br>
                                 <label for="text">&ensp;Tài Khoản Nhận:</label>
                                 
@@ -38,8 +36,12 @@
                                 <input  style=" border: #ffffff" type="text" name="content" value="${content}">
                             </div>
                             <div class="form-group">
+                             <label></label>    
+                            <progress value="0" max="30" id="pbar" ></progress><p id="counting">30</p>
+                            </div>
+                            <div class="form-group">
                                 <label for="text">&ensp;Enter code OTP:</label>
-                                <input  style="width: 150px; border-radius:5px 5px 5px 5px"type="text" name="otp" required>
+                                <input  style="width: 150px; border-radius:5px 5px 5px 5px" type="text" name="otp" required>
                             </div>
                             <div>
                                 <label></label>

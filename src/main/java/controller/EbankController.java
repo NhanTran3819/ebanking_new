@@ -56,7 +56,7 @@ public class EbankController {
     @Autowired
     private RoleRepository roleRepo;
     
-    public static final String SERVICE_URL = "http://localhost:8084/EbankingWebService/account";
+    public static final String SERVICE_URL = "http://localhost:8080/EbankingWebService/account";
             
     
     @RequestMapping(method=GET)

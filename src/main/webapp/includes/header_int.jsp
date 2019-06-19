@@ -35,13 +35,13 @@
                 sendOTP();
               } else {
                    txt = "Cancel!";
-                   location.assign("ngoai");
+                   location.assign("noibo");
                 }
             }
 
             function sendOTP() {
                var form = document.getElementById("form1");
-               form.action = 'informExternal';
+               form.action = 'informInternal';
                form.method = 'POST';
    //form.innerHTML = '<input name="q" value="test">';
    // the form must be in the document to submit it

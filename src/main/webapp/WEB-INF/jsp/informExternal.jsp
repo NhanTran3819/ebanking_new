@@ -16,9 +16,7 @@
                     <h1 style="color:  #08088A;text-align: center;font-weight: bold">THÔNG TIN CHUYỂN TIỀN</h1>
                     <div class="container">
                         <mvc:form  id="form1" modelAttribute="transactionAccountExt" action="${action}" method="POST" >
-                            <br>
-                            <p style="color:red">${param.msg}</p>
-                            <br>
+
                             <div class="form-group">
                                 <label for="text">&ensp;&ensp;From Account:</label>                               
                                 <input  style=" border: #ffffff" type="text" name="fromAccount" value="${transactionAccountExt.fromAccount}" required>
@@ -53,7 +51,8 @@
                             </div>
                             <div class="form-group">
                              <label></label>    
-                            <progress value="0" max="15" id="pbar" ></progress><p id="counting">15</p>
+                            <progress value="0" max="30" id="pbar" ></progress>
+                            <label></label><p id="counting">30</p>
                             </div>
                             <div class="form-group">
                                 <label for="text">&ensp;&ensp;Enter code OTP:</label>
