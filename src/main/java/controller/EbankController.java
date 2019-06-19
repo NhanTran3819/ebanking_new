@@ -236,38 +236,32 @@ public class EbankController {
     }
     
     @RequestMapping(value="/checkRegister",method=POST)
-    public String active(Model model,@RequestParam("id") String id,
+        public String active(Model model,@RequestParam("id") String id,
                 @RequestParam("email") String email,@RequestParam("pass1") String pass1,
                 @RequestParam("pass2") String pass2){
         String msgBody="Go to ebanking to activation "+" "+
-                "http://localhost:8080/WebEbanking_1/active";
+                "http://localhost:8080/Ebanking_v2/active";
         String subject="Activation account ebanking";
-        String url="";
-        String msgpass="";
+        String url="Register";
         //int enable=0;
         if(pass1.equals(pass2)){
             List<CustomerEntity> customerList=(List<CustomerEntity>) customerRepo.findAll();
             for(CustomerEntity cus:customerList){
                 if(cus.getCustomerId().equals(id)&&cus.getEmail().equals(email)){
                    String newAcc=accountService.getNewAccount();
-                   AccountEntity newAccount= new AccountEntity();
-                   newAccount.setAccountNo(newAcc);
-                   newAccount.setAccountType("transaction");
-                   newAccount.setBalance(0.0);
-                   newAccount.setInterest(0.0);
-                   newAccount.setPassword(pass1);
-                   newAccount.setCreateDate(LocalDate.now());
-                   newAccount.setEnable(0);
-                   newAccount.setCustomer(cus);
+                   AccountEntity newAccount= new AccountEntity(newAcc,"transaction",pass1,0.0,0.0,LocalDate.now(),0,cus);
                    accountRepo.save(newAccount);
-                   msgBody=msgBody+"?enable=1&accId="+newAcc+"\n"+"Account: "+newAcc+"\n"+"password: "+pass1;
+                   msgBody=msgBody+"?enable=1&accId="+newAcc+"\n"+"Account: "+newAcc;
                    SentMail.send(email, subject, msgBody);
                    url="home";
-            }
+            }else{
+               url="redirect:/Register";
+               model.addAttribute("msg", "account or mail not true");
+        }
               }
         }else{
-            url="Register";
-            msgpass="";
+            url="redirect:/Register";
+            model.addAttribute("msg", "password nhap lai khong khop nhau");
         }
         return url;
     }
@@ -321,6 +315,8 @@ public class EbankController {
         model.addAttribute("msg",msg);
         return url;
     }
+    
+    
         
     @RequestMapping(value="/thongtinkhachhang",method=GET)
     public String inforCustomer(Model model,HttpServletRequest request){
@@ -366,6 +362,8 @@ public class EbankController {
             if(toAccount!=null&&acc.getAccountNo().equals(toAccount)){
                 model.addAttribute("account", acc);
                 model.addAttribute("action", "informInternal");
+            }else{
+                model.addAttribute("msg", "account not existing");
             }
         }
         return "noibo";
@@ -454,6 +452,8 @@ public class EbankController {
                 model.addAttribute("action", "informExternal");
                 setExtBankDropDownList(model);
                 setBranchDropDownList(branchList,model);
+            }else{
+                model.addAttribute("msg", "bank not existing");
             }
         }
         return "ngoai";

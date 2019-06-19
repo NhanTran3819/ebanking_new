@@ -15,7 +15,7 @@
         <div class="col-md-8"><br>
                 <h1 style="color:  #08088A;font-weight: bold">&ensp;&ensp;CHUYỂN TIỀN KHÁC NGÂN HÀNG</h1> 
                     <div class="sub_container">
-                        
+               <p style="color:red">${param.msg}</p>         
         <mvc:form modelAttribute="transactionAccountExt" method="POST" action="${action}">
             <table>
                  <tr>

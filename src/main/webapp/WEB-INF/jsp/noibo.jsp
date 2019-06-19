@@ -18,6 +18,7 @@
             
                 <h1 style="color:  #08088A;font-weight: bold">&ensp;CHUYỂN TIỀN NỘI BỘ</h1> <br>
                     <div class="sub_container">
+                        <p style="color:red">${param.msg}</p>
                         <form action="${action}" method="POST">                           
                             <div class="form-group">
                                 <label for="text">&ensp;Tài Khoản Nhận:</label>
