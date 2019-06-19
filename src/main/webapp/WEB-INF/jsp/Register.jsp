@@ -15,7 +15,9 @@
                     <div class="sub_container">
                         
                         <form action="${action}" method="POST">
+                            <br>
                             <p style="color:red">${param.msg}</p>
+                            <br>
                             <div class="form-group">
                                 <label for="text">&ensp;Account:</label><br>
                                 <input name="id" type="text" class="form-control" placeholder="Enter Account" required/>
