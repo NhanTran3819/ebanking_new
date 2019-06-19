@@ -18,8 +18,10 @@
             
                 <h1 style="color:  #08088A;font-weight: bold">&ensp;CHUYỂN TIỀN NỘI BỘ</h1> <br>
                     <div class="sub_container">
-                        <p style="color:red">${param.msg}</p>
-                        <form action="${action}" method="POST">                           
+                        <form action="${action}" method="POST">  
+                            <br>
+                            <p style="color:red">${param.msg}</p>
+                            <br>
                             <div class="form-group">
                                 <label for="text">&ensp;Tài Khoản Nhận:</label>
                                 <input type="text" class="form-control" value="${account.accountNo}" id="toAccount" name="toAccount" onChange="test()" required>

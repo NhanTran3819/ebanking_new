@@ -7,7 +7,7 @@
    <div class="container-fluid">
             <div class="row">
                <br><br>
-               <h2 style="font-size: 200%;font-weight: bold;color: blue;text-align: center"><marquee>WELCOME TO EBANKING</marquee></h2>  
+               <h2 style="font-size: 200%;font-weight: bold;color: blue;text-align: center"><marquee>WELCOME TO EBANKING</marquee></h2>
             </div>
             
             <div class="row">

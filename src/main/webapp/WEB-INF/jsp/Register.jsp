@@ -13,7 +13,7 @@
                 <h1 style="color:  #08088A; font-weight: bold">&ensp;ĐĂNG KÝ EBANKING</h1>
         
                     <div class="sub_container">
-                        
+
                         <form action="${action}" method="POST">
                             <br>
                             <p style="color:red">${param.msg}</p>

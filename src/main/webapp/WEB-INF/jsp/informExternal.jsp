@@ -16,6 +16,9 @@
                     <h1 style="color:  #08088A;text-align: center;font-weight: bold">THÔNG TIN CHUYỂN TIỀN</h1>
                     <div class="container">
                         <mvc:form  id="form1" modelAttribute="transactionAccountExt" action="${action}" method="POST" >
+                            <br>
+                            <p style="color:red">${param.msg}</p>
+                            <br>
                             <div class="form-group">
                                 <label for="text">&ensp;&ensp;From Account:</label>                               
                                 <input  style=" border: #ffffff" type="text" name="fromAccount" value="${transactionAccountExt.fromAccount}" required>

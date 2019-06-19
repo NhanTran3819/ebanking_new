@@ -13,8 +13,10 @@
         <div class="col-md-9"><br>
                     <h1 style="color:  #08088A;text-align: center;font-weight: bold">THÔNG TIN CHUYỂN TIỀN</h1> 
                     <div class="sub_container">
-                        <p style="color:red">${param.msg}</p>
                         <form action="${action}" method="POST">
+                            <br>
+                            <p style="color:red">${param.msg}</p>
+                            <br>
                             <div class="form-group"><br>
                                 <label for="text">&ensp;Tài Khoản Nhận:</label>
                                 

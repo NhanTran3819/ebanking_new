@@ -228,45 +228,50 @@ public class EbankController {
     
     @RequestMapping(value="/newAccount",method=GET)
     public String newAccount(Model model){
-        model.addAttribute("account", new AccountEntity());
-        model.addAttribute("msg","Add new Account");
-        model.addAttribute("type", "add");
+
         model.addAttribute("action", "checkRegister");
         return "Register";
     }
+
     
-    @RequestMapping(value="/checkRegister",method=POST)
+@RequestMapping(value="/checkRegister",method=POST)
         public String active(Model model,@RequestParam("id") String id,
                 @RequestParam("email") String email,@RequestParam("pass1") String pass1,
                 @RequestParam("pass2") String pass2){
         String msgBody="Go to ebanking to activation "+" "+
                 "http://localhost:8080/Ebanking_v2/active";
         String subject="Activation account ebanking";
-        String url="Register";
+        String url="register";
+        String msg="";
         //int enable=0;
         if(pass1.equals(pass2)){
             List<CustomerEntity> customerList=(List<CustomerEntity>) customerRepo.findAll();
             for(CustomerEntity cus:customerList){
                 if(cus.getCustomerId().equals(id)&&cus.getEmail().equals(email)){
                    String newAcc=accountService.getNewAccount();
-                   AccountEntity newAccount= new AccountEntity(newAcc,"transaction",pass1,0.0,0.0,LocalDate.now(),0,cus);
+                   AccountEntity newAccount= new AccountEntity(newAcc,"transaction",pass1,0.0,0.2,LocalDate.now(),0,cus);
                    accountRepo.save(newAccount);
                    msgBody=msgBody+"?enable=1&accId="+newAcc+"\n"+"Account: "+newAcc;
                    SentMail.send(email, subject, msgBody);
                    url="home";
             }else{
-               model.addAttribute("msg", "account or mail not true");
+               url="redirect:/newAccount";
+               msg="account or mail not true";
         }
               }
         }else{
-            model.addAttribute("msg", "password nhap lai khong khop nhau");
+            url="redirect:/newAccount";
+            msg="password nhap lai khong khop nhau";
         }
+        model.addAttribute("msg", msg);
         return url;
     }
         
+        
     @RequestMapping(value="/active",method=GET)
-    public String deleteProduct(@RequestParam(name="enable") int enable,@RequestParam(name="accId") String accId){
+    public String deleteProduct(Model model,@RequestParam(name="enable") int enable,@RequestParam(name="accId") String accId){
         String url="";
+        String msg="";
         if(enable!=0){
             List<AccountEntity> accountList=(List<AccountEntity>) accountRepo.findAll();
             for(AccountEntity acc:accountList){
@@ -277,9 +282,10 @@ public class EbankController {
                 }
             }
         }else{
-            String msg="active error";
+            msg="active error";
             url = "Register";
         }
+        model.addAttribute("msg",msg);
         return url;
     }
     
@@ -287,25 +293,22 @@ public class EbankController {
     public String logout(Model model){
         return "login";
     }
-    @RequestMapping(value="/login",method=GET)
-    public String preLogin(Model model){
-        model.addAttribute("account", new AccountEntity());
-        model.addAttribute("msg","Login");
-        model.addAttribute("type", "login");
+
+     @RequestMapping(value="/login",method=GET)
+        public String preLogin(Model model){
         model.addAttribute("action", "checkLogin");
         return "Login1";
     }
 
-    @RequestMapping(value="/checkLogin",method=POST)
-    public String login(@RequestParam("id") String id,@RequestParam("pass") String pass,
+     @RequestMapping(value="/checkLogin",method=POST)
+        public String login(@RequestParam("id") String id,@RequestParam("pass") String pass,
                 Model model,HttpServletRequest request){
-        String url="Login1";
+        String url="redirect:/login";
         String msg="login fail";
         List<AccountEntity> accountList=(List<AccountEntity>) accountRepo.findAll();
         for(AccountEntity acc:accountList){
             if(acc.getAccountNo().equals(id)&&acc.getPassword().equals(pass)&&acc.getEnable()==1){
                 url="Welcome";
-                msg="login Success";
                 HttpSession session=request.getSession();
                 session.setAttribute("acc", acc);
             }
@@ -313,7 +316,6 @@ public class EbankController {
         model.addAttribute("msg",msg);
         return url;
     }
-    
     
         
     @RequestMapping(value="/thongtinkhachhang",method=GET)
@@ -355,15 +357,17 @@ public class EbankController {
         
     @RequestMapping(value="/getName",method=GET)
     public String getAccountName(Model model,@RequestParam("toAccount") String toAccount){
+        String msg="";
         List<AccountEntity> accountList=(List<AccountEntity>) accountRepo.findAll();
         for(AccountEntity acc:accountList){
             if(toAccount!=null&&acc.getAccountNo().equals(toAccount)){
                 model.addAttribute("account", acc);
                 model.addAttribute("action", "informInternal");
             }else{
-                model.addAttribute("msg", "account not existing");
+                msg="account not existing";
             }
         }
+        model.addAttribute("msg", msg);
         return "noibo";
     }
         
@@ -391,7 +395,8 @@ public class EbankController {
     public String tranferInternal(Model model,@RequestParam("toAccount") String toAccount,
                 @RequestParam("accName") String accName,@RequestParam("content") String content,
                 @RequestParam("otp") String otp,HttpServletRequest request){
-            String url="";            
+            String url="";
+            String msg="";
             int amount=Integer.parseInt(request.getParameter("amount"));
             List<AccountEntity> accountList=(List<AccountEntity>) accountRepo.findAll();
             for(AccountEntity acc:accountList){
@@ -410,19 +415,18 @@ public class EbankController {
                             session.setAttribute("acc",newAcc);
                             url="tranferInternalSuccess";
                         }else{
-                            String msg="Amount more than balance. Please enter again amount!";
-                            model.addAttribute("msg",msg);
+                            msg="Amount more than balance. Please enter again amount!";
                             url="noibo";
                         }
                      }else if(otp!=null&&!otp.equals(codeOTP)){
-                         String msg="Code otp not true!";
-                         model.addAttribute("msg",msg);
+                         msg="Code otp not true!";
                          url="noibo";
                      }else{
                          url="informInternal";
                      }
-                 }   
+                   }   
                 }
+            model.addAttribute("msg",msg);
             return url;
     }
         
@@ -440,6 +444,7 @@ public class EbankController {
         
     @RequestMapping(value="/getBranch",method=GET)
     public String getBranch(Model model,@RequestParam("bank") String bank){
+        String msg="";
         List<ExtBankEntity> extBankList=(List<ExtBankEntity>) extBankRepo.findAll();
         for(ExtBankEntity extBank:extBankList){
             if(bank!=null&& extBank.getBankName().equals(bank)){
@@ -451,9 +456,10 @@ public class EbankController {
                 setExtBankDropDownList(model);
                 setBranchDropDownList(branchList,model);
             }else{
-                model.addAttribute("msg", "bank not existing");
+                msg="bank not existing";
             }
         }
+        model.addAttribute("msg", msg);
         return "ngoai";
         }
         
@@ -476,6 +482,7 @@ public class EbankController {
     public String tranferInternal(Model model,TransactionAccountExtEntity transactionAccountExt,
                 @RequestParam("otpExt") String otpExt,HttpServletRequest request){
             String url="";
+            String msg="";
             HttpSession session=request.getSession();
             AccountEntity fromAccount=(AccountEntity) session.getAttribute("acc");
             String codeOTP=(String) session.getAttribute("otpExt");
@@ -502,17 +509,16 @@ public class EbankController {
                             url="tranferExternalFailed";
                         }
                 }else{
-                    String msg="Amount more than balance. Please enter again amount!";
-                    model.addAttribute("msg",msg);
+                    msg="Amount more than balance. Please enter again amount!";
                     url="ngoai";
                         }
             }else if(otpExt!=null&&!otpExt.equals(codeOTP)){
-                         String msg="Code otp not true!";
-                         model.addAttribute("msg",msg);
+                         msg="Code otp not true!";
                          url="ngoai";
             }else{
                          url="informExternal";
             }
+            model.addAttribute("msg",msg);
             return url;
         }
 
